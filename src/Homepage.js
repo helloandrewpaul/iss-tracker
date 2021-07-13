@@ -6,7 +6,7 @@ const Homepage = () => {
   const [issLocation, setIssLocation] = useState([]);
 
   const getIssLocation = async () => {
-    return fetch("http://api.open-notify.org/iss-now.json")
+    return fetch("https://api.open-notify.org/iss-now.json")
       .then((response) => response.json())
       .then((data) => {
         let locationArray = Object.values(data)[2];
