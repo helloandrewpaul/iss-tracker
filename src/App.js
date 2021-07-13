@@ -1,31 +1,24 @@
-import React ,{useEffect,useState}from "react"
-function App() {
-
-const [issLocation, setIssLocation]=useState([])
-
-const getIssLocation =async ()=>{
-return fetch("http://api.open-notify.org/iss-now.json")
-.then((response)=> response.json())
-.then((data)=> {
-  let locationArray = Object.values(data)[2]
-  setIssLocation(locationArray)
-})
-}
-
-useEffect(()=>{
-  const interval = setInterval(()=>{
-    getIssLocation()
-  },2000);
-  return ()=> clearInterval(interval)
-  // getIssLocation()
-},[])
+import React from "react"
+import { BrowserRouter,Route } from "react-router-dom";
+import GlobalStyles from "./GlobalStyles";
+import Homepage from "./Homepage";
+const  App=()=> {
 
 
-  return (<><div>{issLocation.latitude}
-  </div>
-  <div>{issLocation.longitude}</div>
-  </>
+
+
+
+
+  return (
+    <BrowserRouter>
+    <GlobalStyles/>
+    <Route exact path="/"><Homepage/></Route>
+    
+    </BrowserRouter>
+
+
   )
+
   
 }
 
