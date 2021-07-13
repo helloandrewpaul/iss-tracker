@@ -92,7 +92,7 @@ const Long = styled.div`
   position: relative;
   z-index: 100;
   transition: all 2s ease-out;
-animation: rightSlide 4S ease-out;
+animation: rightSlide 2S ease-out;
 @keyframes rightSlide{
   0%{
     right:100%;
@@ -110,7 +110,7 @@ const Lat = styled.div`
   position: relative;
   z-index: 100;
   transition: all 2s ease-out;
-animation: leftSlide 4s ease-out;
+animation: leftSlide 2s ease-out;
 @keyframes leftSlide{
   0%{
     left:100%;
