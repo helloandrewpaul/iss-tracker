@@ -9,7 +9,7 @@ const Homepage = () => {
     return fetch("http://api.open-notify.org/iss-now.json")
       .then((response) => response.json())
       .then((data) => {
-        let locationArray = Object.values(data)[1];
+        let locationArray = Object.values(data)[2];
         setIssLocation(locationArray);
       });
   };
