@@ -3,16 +3,19 @@ import styled from "styled-components";
 import bg from "./assets/bg.mp4";
 
 const Homepage = () => {
-  const [issLocation, setIssLocation] = useState([]);
 
-  const getIssLocation = async () => {
+const [issLocation, setIssLocation] = useState([]);
+
+  const getIssLocation = async () => 
+  {
     return fetch("http://api.open-notify.org/iss-now.json")
       .then((response) => response.json())
       .then((data) => {
-        let locationArray = Object.values(data)[2];
+        let locationArray = Object.values(data)[0];
         setIssLocation(locationArray);
       });
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       getIssLocation();
