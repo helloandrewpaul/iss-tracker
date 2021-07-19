@@ -2,7 +2,7 @@
 ISS tracker with real-time updates
 <br/>
 <br/>
-<img src="./src/assets/image01.png" style="width: 100%;" />
+<img src="./src/assets/image.png" style="width: 100%;" />
 
 Instructions:
 
