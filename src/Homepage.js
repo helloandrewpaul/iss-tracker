@@ -4,15 +4,16 @@ import bg from "./assets/bg.mp4";
 
 const Homepage = () => {
 
-const [issLocation, setIssLocation] = useState([]);
+const [latitude,setLatitude]=useState([])
+const [longitude,setLongitude]=useState([])
 
   const getIssLocation = async () => 
   {
     return fetch("http://api.open-notify.org/iss-now.json")
       .then((response) => response.json())
       .then((data) => {
-        let locationArray = Object.values(data)[0];
-        setIssLocation(locationArray);
+        setLatitude(data.iss_position.latitude);
+        setLongitude(data.iss_position.longitude)
       });
   };
 
@@ -30,10 +31,10 @@ const [issLocation, setIssLocation] = useState([]);
         <TextWrap>
           <Title>ISS Tracker</Title>
           <Long >
-            Longitude: {issLocation.latitude}
+            Longitude: {longitude}
           </Long>
           <Lat >
-            Latitude: {issLocation.longitude}
+            Latitude: {latitude}
           </Lat>
         </TextWrap>
       </Wrap>
