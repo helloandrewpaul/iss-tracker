@@ -3,21 +3,19 @@ import styled from "styled-components";
 import bg from "./assets/bg.mp4";
 
 const Homepage = () => {
+  const [position, setPosition] = useState({
+    lat: "",
+    long: "",
+  });
 
-const [position, setPosition]=useState({
-  lat: "",
-  long: ""
-})
-
-  const getIssPosition = async () => 
-  {
+  const getIssPosition = async () => {
     return fetch("http://api.open-notify.org/iss-now.json")
       .then((response) => response.json())
       .then((data) => {
         setPosition({
           long: data.iss_position.longitude,
-          lat: data.iss_position.latitude
-        })
+          lat: data.iss_position.latitude,
+        });
       });
   };
 
@@ -29,20 +27,14 @@ const [position, setPosition]=useState({
   });
 
   return (
-    <>
-      <Wrap >
-        <Background autoPlay loop muted src={bg} type="video/mp4" />
-        <TextWrap>
-          <Title>ISS Tracker</Title>
-          <Long >
-            Longitude: {position.long}
-          </Long>
-          <Lat >
-            Latitude: {position.lat}
-          </Lat>
-        </TextWrap>
-      </Wrap>
-    </>
+    <Wrap>
+      <Background autoPlay loop muted src={bg} type="video/mp4" />
+      <TextWrap>
+        <Title>ISS Tracker</Title>
+        <Long>Longitude: {position.long}</Long>
+        <Lat>Latitude: {position.lat}</Lat>
+      </TextWrap>
+    </Wrap>
   );
 };
 
@@ -68,12 +60,12 @@ const Title = styled.div`
   position: relative;
   z-index: 100;
   animation: topSlide 1s ease-out;
-  @keyframes topSlide{
-    0%{
-      bottom:100%;
+  @keyframes topSlide {
+    0% {
+      bottom: 100%;
     }
-    100%{
-      bottom:0;
+    100% {
+      bottom: 0;
     }
   }
 `;
@@ -98,17 +90,16 @@ const Long = styled.div`
   padding: 15px;
   position: relative;
   z-index: 100;
-  transition: all 2s ease-out;
-animation: rightSlide 2S ease-out;
-@keyframes rightSlide{
-  0%{
-    right:100%;
+  animation: rightSlide 2s ease-out;
+  @keyframes rightSlide {
+    0% {
+      right: 100%;
+    }
+    100% {
+      right: 0;
+    }
   }
-  100%{
-    right:0;
-  }
-
-}`;
+`;
 
 const Lat = styled.div`
   margin: 0 auto;
@@ -116,16 +107,15 @@ const Lat = styled.div`
   padding: 15px;
   position: relative;
   z-index: 100;
-  transition: all 2s ease-out;
-animation: leftSlide 2s ease-out;
-@keyframes leftSlide{
-  0%{
-    left:100%;
+  animation: leftSlide 2s ease-out;
+  @keyframes leftSlide {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 0;
+    }
   }
-  100%{
-    left:0;
-  }
-
-}`;
+`;
 
 export default Homepage;
