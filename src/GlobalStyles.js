@@ -7,6 +7,7 @@ export default createGlobalStyle`
   *:after {
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
+      
   }
   
   html, body, div,
@@ -15,5 +16,5 @@ export default createGlobalStyle`
   text {
     font-family: 'DM Sans', sans-serif;
     color:#fff;
-   
+    margin:0;
   }`;
