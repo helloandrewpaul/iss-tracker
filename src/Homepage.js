@@ -59,7 +59,7 @@ const Title = styled.div`
   margin: 30px auto;
   position: relative;
   z-index: 100;
-  animation: topSlide 1s ease-out;
+  animation: topSlide 1.5s ease-out;
   @keyframes topSlide {
     0% {
       bottom: 100%;
